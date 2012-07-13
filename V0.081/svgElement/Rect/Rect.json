@@ -1,0 +1,46 @@
+[{
+	"id":"x",
+	"name":"x",
+	"defaultvalue":"",
+	"value":"10",
+	"categorie":"",
+	"info":"",
+	"type":"position"
+},
+{
+	"id":"y",
+	"name":"y",
+	"defaultvalue":"",
+	"value":"10",
+	"categorie":"",
+	"info":"",
+	"type":"position"
+},
+{
+	"id":"w",
+	"name":"w",
+	"defaultvalue":"",
+	"value":"100",
+	"categorie":"",
+	"info":"",
+	"type":"position"
+},
+{
+	"id":"h",
+	"name":"h",
+	"defaultvalue":"",
+	"value":"100",
+	"categorie":"",
+	"info":"",
+	"type":"position"
+},
+{
+	"id":"style",
+	"name":"style",
+	"defaultvalue":"",
+	"value":"",
+	"categorie":"",
+	"info":"",
+	"type":"Shape"
+}
+]

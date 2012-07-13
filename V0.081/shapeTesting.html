@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title></title>
+	<style type='text/css'>
+
+	#mleft { width: 70%; height: 700px; float: left; }
+		#picker{ background-color: yellow; }
+
+	#mright { width: 30%; float: right; background-color: green;}
+		#currentData{ background-color: pink; }
+		#styleElementZone{ background-color: yellow; }
+
+	.cssShape1 {fill: yellow; 	stroke: orange;	stroke-width: 1;}
+	</style>
+
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<script type="text/javascript" src="js/d3.v2.js"></script>
+<script type="text/javascript" src="element/Shape.js"></script>
+<script type="text/javascript" src="element/Rect.js"></script>
+<body>
+<div id="mglobal">
+		<div id="mleft">
+			<div id="graphZone"></div>
+			<div id="picker"></div>
+
+		</div>
+		<div id="mright">
+			<div id="currentDataZone">
+			<input type="button" onClick="chg()" value="truc">
+
+			</div>
+			<div id="svgStructureZone"></div>
+			<div id="svgParameterZone"></div>
+			<div id="svgStyleZone"></div>
+
+		</div>
+</div>
+</body>
+
+
+
+<script language="javascript">
+
+/************************************ Function *******************************/
+
+/************************************ Model *******************************/
+//~ var Rect = Backbone.Model.extend({
+	//~ defaults: function() {
+      //~ return {
+		//~ id : null,
+        //~ name: "",
+		//~ x: 0,
+		//~ y: 0,
+		//~ w: 10,
+		//~ h: 10,
+		//~ style:""
+      //~ };
+    //~ },
+    //~ clear: function() {
+		//~ this.destroy();
+    //~ }
+  //~ });
+
+/************************************ Collection *******************************/
+
+/************************************ View *******************************/
+//~ var RectView = Backbone.View.extend({
+		//~ model: Rect,
+		//~ initialize: function() {
+		    //~ _.bindAll(this, 'render','update');
+			//~ this.model.bind('change', this.update, this);
+			//~ this.render();
+		//~ },
+
+		//~ render: function(){
+			//~ var selection=d3.select(this.el)
+				//~ selection.append("rect").attr("id",this.model.get("id"));
+				//~ this.update();
+		//~ },
+		//~ update: function(){
+			//~ var selection=d3.select("#"+this.model.get("id"))
+			//~ selection
+				//~ .transition()
+				//~ .duration(750)
+				//~ .delay(10)
+					//~ .attr("x",this.model.get('x'))
+					//~ .attr("y",this.model.get('y'))
+					//~ .attr("width",this.model.get('w'))
+					//~ .attr("height", this.model.get('h'))
+					//~ .attr("class", this.model.get('style'));
+		//~ }
+
+	//~ });
+/************************************ CollectionView *******************************/
+
+/************************************ Application *******************************/
+var maZone=d3.select("#graphZone").append("svg")
+				.attr("id","drawZone");
+
+var  maShape=new Shape({ id: "Shape1",
+						name: "Shape1",
+						fill: "Blue",
+						stroke: "Red",
+						strokewidth: "3"});
+
+var maVue=new ShapeView({el: "#drawZone", model: maShape});
+
+function chg(){
+	alert("truc");
+	maShape.set("fill","orange");
+
+}
+
+
+
+</script>
+</head>
+
+</html>
+
+

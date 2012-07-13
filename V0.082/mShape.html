@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title></title>
+	<link rel="stylesheet" href="js/farbtastic/farbtastic.css" type="text/css" />
+	<style type='text/css'>
+
+	#mleft { width: 70%; float: left; }
+		#picker{ background-color: yellow; width: 200px; height: 200px;}
+
+	#mright { width: 30%; float: right; background-color: green;}
+		#currentData{ background-color: pink; }
+		#styleElementZone{ background-color: yellow; }
+	</style>
+<script type="text/javascript" src="js/head.js"></script>
+<script language="javascript">
+head.js("js/jquery-1.7.1.js")
+		.js("js/farbtastic/farbtastic.js")
+		.js("js/underscore.js")
+		.js("js/backbone.js")
+		.js("js/d3.v2.js")
+		.js("js/svgMaker/init.js")
+		.js("js/svgMaker/content.js")
+		.js("js/svgMaker/currentData.js")
+		.js("js/svgMaker/svgParameter.js")
+		.js("js/svgMaker/svgStructure.js")
+
+		.js("svgElement/Shape/Shape.js")
+		.js("svgElement/Rect/Rect.js");
+
+head.ready(function() {
+	$(document).ready(function(){
+
+/************************************ Function *******************************/
+
+/************************************ Model *******************************/
+
+/************************************ Collection *******************************/
+
+/************************************ View *******************************/
+
+/************************************ CollectionView *******************************/
+
+//~ on affiche la liste des elements déjà crée
+var urlListStructure="svgElement/AllsvgStructure.json" ;
+var shapeInit="svgElement/Shape/Shape.json";
+
+var msvgStructureList=new svgStructureList({url: urlListStructure});
+var msvgStructureListView=new svgStructureListView({el: $("#svgStructureZone"), collection: msvgStructureList});
+
+var mCurrentView=new currentDataView({model: mCurrent, el: "#currentDataZone" });
+
+//on dessine la zone svg pour recueillir les elements
+//~ maZone=d3.select("#graphZone").append("svg")
+				//~ .attr("id","contentZone")
+				//~ .attr("width", 1000)
+				//~ .attr("height", 400);
+
+$('#picker').farbtastic(function (color){
+	//~ on recupere le nom du champ courant
+		var mylay=$("#currentField").html();
+		currentElement=mCurrent.get("currentElement");
+		currentField=mCurrent.get("currentField");
+
+		msvgParameterList.get(currentField).set("value",color);
+		//~ msvgParameterListView.render();
+
+		//on modifie le parametre courant
+		//~ currentFieldData=mCurrent.get("");
+		//~ msvgStructureList
+					//~ alert(JSON.stringify(msvgParameterList));
+		//~ if (mylay==""){
+		//on ne fait rien si pas de categorie choisie
+		//~ } else {
+		//~ on change la valeur du champ courant dans l'objet model
+		//~ myCssList.get(mylay).set("value",color);
+		//~ on l'affiche dans la case input
+		//~ $("#"+mylay).val(color);
+		//~ }
+});
+
+
+$('#picker').hide();
+
+
+	}); //end document ready jquery
+}); //end header ready
+
+</script>
+</head>
+<body>
+<div id="mglobal">
+		<div id="mleft">
+			<div id="graphZone"><svg id="contentZone" width="1000" height="400"></svg></div>
+
+
+		</div>
+		<div id="mright">
+			<div id="svgStructureZone"></div>
+			<div id="currentDataZone"></div>
+			<div id="svgParameterZone"></div>
+				<div id="picker"></div>
+			<div id="svgStyleZone"></div>
+
+		</div>
+</div>
+</body>
+</html>
+
+
