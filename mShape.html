@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title></title>
+	<link rel="stylesheet" href="js/svgMaker/widgets/farbtastic/farbtastic.css" type="text/css" />
+	<style type='text/css'>
+
+	#mleft { width: 70%; float: left; }
+		#picker{ background-color: yellow; width: 200px; height: 200px;}
+
+	#mright { width: 30%; float: right; background-color: green;}
+		#currentData{ background-color: pink; }
+		#styleElementZone{ background-color: yellow; }
+	</style>
+<script type="text/javascript" src="js/head.js"></script>
+<script language="javascript">
+head.js("js/jquery-1.7.1.js")
+
+		.js("js/underscore.js")
+		.js("js/backbone.js")
+		.js("js/d3.v2.js")
+		.js("js/svgMaker/init.js")
+		.js("js/svgMaker/content.js")
+		.js("js/svgMaker/currentData.js")
+		.js("js/svgMaker/svgParameter.js")
+		.js("js/svgMaker/svgStructure.js")
+
+		.js("js/svgMaker/widgets/color-picker.js")
+
+		.js("svgElement/Shape/Shape.js")
+		.js("svgElement/Rect/Rect.js");
+
+head.ready(function() {
+	$(document).ready(function(){
+
+/************************************ Function *******************************/
+
+/************************************ Model *******************************/
+
+/************************************ Collection *******************************/
+
+/************************************ View *******************************/
+
+/************************************ CollectionView *******************************/
+
+//~ on affiche la liste des elements déjà crée
+var urlListStructure="svgElement/AllsvgStructure.json" ;
+var shapeInit="svgElement/Shape/Shape.json";
+
+
+
+var msvgStructureList=new svgStructureList({url: urlListStructure});
+var msvgStructureListView=new svgStructureListView({el: $("#svgStructureZone"), collection: msvgStructureList});
+
+var mCurrentView=new currentDataView({model: mCurrent, el: "#currentDataZone" });
+
+
+
+	}); //end document ready jquery
+}); //end header ready
+
+</script>
+</head>
+<body>
+<div id="mglobal">
+		<div id="mleft">
+			<div id="graphZone"><svg id="contentZone" width="1000" height="400"></svg></div>
+		</div>
+		<div id="mright">
+			<div id="svgStructureZone"></div>
+			<div id="currentDataZone"></div>
+			<div id="svgParameterZone"></div>
+				<div id="picker"></div>
+			<div id="svgStyleZone"></div>
+
+		</div>
+</div>
+</body>
+</html>
+
+
